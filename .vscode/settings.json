@@ -1,0 +1,21 @@
+{
+    "cSpell.words": [
+        "astype",
+        "automodule",
+        "Badnarik",
+        "dtype",
+        "ecsim",
+        "idxmax",
+        "iloc",
+        "inplace",
+        "lxml",
+        "maxdepth",
+        "Mullin",
+        "Peroutka",
+        "quickstart",
+        "toctree"
+    ],
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "restructuredtext.confPath": "${workspaceFolder}\\docs\\source"
+}

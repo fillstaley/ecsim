@@ -1,0 +1,34 @@
+.. ECSim documentation master file, created by
+   sphinx-quickstart on Mon Nov  1 12:06:34 2021.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+ECSim Documentation
+===================
+
+ECsim is a package for exploring the outcome of past US presidential elections if the
+number of electors in the electoral college were different. The number of electors
+allocated to each state is equal to its number of senators in the Senate plus its
+number of representatives in the House of Representatives. (Since 1961, there are
+also additional electors allocated for the District of Columbia as if it were a state,
+as specified by the 21st Amendment.) The number of senators each state has is specified
+in the Constitution, while the number of representatives is set by the House itself.
+The  with different
+numbers of representatives in the House of Representatives, and hence different numbers
+of electors in the electoral college.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   tutorial
+   history
+   Package Reference <api>
+
+
+.. Indices and tables
+.. ==================
+
+.. * :ref:`genindex`
+.. * :ref:`modindex`
+.. * :ref:`search`

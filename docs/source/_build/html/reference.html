@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>ECSim &#8212; ECSim  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-ecsim">
+<span id="ecsim"></span><h1>ECSim<a class="headerlink" href="#module-ecsim" title="Permalink to this headline">¶</a></h1>
+<p>A package of tools for simulating the US Electoral College.</p>
+<p>…</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ecsim.Election">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">ecsim.</span></span><span class="sig-name descname"><span class="pre">Election</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">representatives</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">435</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ecsim.Election" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contains the data and method for simulating historical US elections.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ecsim.Election.year">
+<span class="sig-name descname"><span class="pre">year</span></span><a class="headerlink" href="#ecsim.Election.year" title="Permalink to this definition">¶</a></dt>
+<dd><p>The year of the presidential election to simulate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ecsim.Election.union">
+<span class="sig-name descname"><span class="pre">union</span></span><a class="headerlink" href="#ecsim.Election.union" title="Permalink to this definition">¶</a></dt>
+<dd><p>The historical election data used for the simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ecsim.Election.representatives">
+<span class="sig-name descname"><span class="pre">representatives</span></span><a class="headerlink" href="#ecsim.Election.representatives" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of representatives each state receives</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ecsim.Election.apportion_representatives">
+<span class="sig-name descname"><span class="pre">apportion_representatives</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">435</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.core.frame.DataFrame</span></span></span><a class="headerlink" href="#ecsim.Election.apportion_representatives" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apportions some number of representatives among the states.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>number</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of representatives to be apportioned, by default 435</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Their is a row for every state and the number of representatives is stored
+in a column (called ‘Representatives’), also contains a column with Census
+data used to compute the apportionment.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ecsim.Election.get_electors">
+<span class="sig-name descname"><span class="pre">get_electors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">pandas.core.series.Series</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ecsim.Election.get_electors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of electors for each state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>str</em><em>, </em><em>optional</em>) – If present, computes the states electors from its number of representatives
+and the number of senators each state receives. Implements special logic
+for the District of Columbia, which is not a state but does receive electors.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>If no state is given, then a pandas.Series is returned containing the number
+of electors each state receives.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[int, Series]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ecsim.Election.simulate">
+<span class="sig-name descname"><span class="pre">simulate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">percent_uncertainty</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ecsim.Outcome</span></span></span><a class="headerlink" href="#ecsim.Election.simulate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulates a US presidential election.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>percent_uncertainty</strong> (<em>float</em><em>, </em><em>optional</em>) – The percent magnitude of the random change in the results of the election,
+by default 0, and measured in percentage points (eg. an input of 2 means
+a 2% margin of change in the results)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The results of an election stored in an object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Outcome</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="ecsim.census_data">
+<span class="sig-prename descclassname"><span class="pre">ecsim.</span></span><span class="sig-name descname"><span class="pre">census_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">pandas.core.frame.DataFrame</span></em><em class="property"> <span class="pre">=</span> <span class="pre">1960</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">1970</span>&#160; <span class="pre">...</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">2010</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">2020</span> <span class="pre">Name</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">...</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Alabama</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">3266740</span>&#160;&#160; <span class="pre">3444165</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">4779736</span>&#160;&#160; <span class="pre">5024279</span> <span class="pre">Alaska</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">226167</span>&#160;&#160;&#160; <span class="pre">300382</span>&#160; <span class="pre">...</span>&#160;&#160;&#160; <span class="pre">710231</span>&#160;&#160;&#160; <span class="pre">733391</span> <span class="pre">Arizona</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">1302161</span>&#160;&#160; <span class="pre">1770900</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">6392017</span>&#160;&#160; <span class="pre">7151502</span> <span class="pre">Arkansas</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">1786272</span>&#160;&#160; <span class="pre">1923295</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">2915918</span>&#160;&#160; <span class="pre">3011524</span> <span class="pre">California</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">15717204</span>&#160; <span class="pre">19953134</span>&#160; <span class="pre">...</span>&#160; <span class="pre">37253956</span>&#160; <span class="pre">39538223</span> <span class="pre">Colorado</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">1753947</span>&#160;&#160; <span class="pre">2207259</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">5029196</span>&#160;&#160; <span class="pre">5773714</span> <span class="pre">Connecticut</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">2535234</span>&#160;&#160; <span class="pre">3031709</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">3574097</span>&#160;&#160; <span class="pre">3608298</span> <span class="pre">Delaware</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">446292</span>&#160;&#160;&#160; <span class="pre">548104</span>&#160; <span class="pre">...</span>&#160;&#160;&#160; <span class="pre">897934</span>&#160;&#160;&#160; <span class="pre">989948</span> <span class="pre">District</span> <span class="pre">of</span> <span class="pre">Columbia</span>&#160;&#160;&#160; <span class="pre">763956</span>&#160;&#160;&#160; <span class="pre">756510</span>&#160; <span class="pre">...</span>&#160;&#160;&#160; <span class="pre">601723</span>&#160;&#160;&#160; <span class="pre">689545</span> <span class="pre">Florida</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">4951560</span>&#160;&#160; <span class="pre">6789443</span>&#160; <span class="pre">...</span>&#160; <span class="pre">18801310</span>&#160; <span class="pre">21538187</span> <span class="pre">Georgia</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">3943116</span>&#160;&#160; <span class="pre">4589575</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">9687653</span>&#160; <span class="pre">10711908</span> <span class="pre">Hawaii</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">632772</span>&#160;&#160;&#160; <span class="pre">768561</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">1360301</span>&#160;&#160; <span class="pre">1455271</span> <span class="pre">Idaho</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">667191</span>&#160;&#160;&#160; <span class="pre">712567</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">1567582</span>&#160;&#160; <span class="pre">1839106</span> <span class="pre">Illinois</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">10081158</span>&#160; <span class="pre">11113976</span>&#160; <span class="pre">...</span>&#160; <span class="pre">12830632</span>&#160; <span class="pre">12812508</span> <span class="pre">Indiana</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">4662498</span>&#160;&#160; <span class="pre">5193669</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">6483802</span>&#160;&#160; <span class="pre">6785528</span> <span class="pre">Iowa</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">2757537</span>&#160;&#160; <span class="pre">2824376</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">3046355</span>&#160;&#160; <span class="pre">3190369</span> <span class="pre">Kansas</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">2178611</span>&#160;&#160; <span class="pre">2246578</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">2853118</span>&#160;&#160; <span class="pre">2937880</span> <span class="pre">Kentucky</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">3038156</span>&#160;&#160; <span class="pre">3218706</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">4339367</span>&#160;&#160; <span class="pre">4505836</span> <span class="pre">Louisiana</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">3257022</span>&#160;&#160; <span class="pre">3641306</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">4533372</span>&#160;&#160; <span class="pre">4657757</span> <span class="pre">Maine</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">969265</span>&#160;&#160;&#160; <span class="pre">992048</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">1328361</span>&#160;&#160; <span class="pre">1362359</span> <span class="pre">Maryland</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">3100689</span>&#160;&#160; <span class="pre">3922399</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">5773552</span>&#160;&#160; <span class="pre">6177224</span> <span class="pre">Massachusetts</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">5148578</span>&#160;&#160; <span class="pre">5689170</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">6547629</span>&#160;&#160; <span class="pre">7029917</span> <span class="pre">Michigan</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">7823194</span>&#160;&#160; <span class="pre">8875083</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">9883640</span>&#160; <span class="pre">10077331</span> <span class="pre">Minnesota</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">3413864</span>&#160;&#160; <span class="pre">3804971</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">5303925</span>&#160;&#160; <span class="pre">5706494</span> <span class="pre">Mississippi</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">2178141</span>&#160;&#160; <span class="pre">2216912</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">2967297</span>&#160;&#160; <span class="pre">2961279</span> <span class="pre">Missouri</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">4319813</span>&#160;&#160; <span class="pre">4676501</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">5988927</span>&#160;&#160; <span class="pre">6154913</span> <span class="pre">Montana</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">674767</span>&#160;&#160;&#160; <span class="pre">694409</span>&#160; <span class="pre">...</span>&#160;&#160;&#160; <span class="pre">989415</span>&#160;&#160; <span class="pre">1084225</span> <span class="pre">Nebraska</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">1411330</span>&#160;&#160; <span class="pre">1483493</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">1826341</span>&#160;&#160; <span class="pre">1961504</span> <span class="pre">Nevada</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">285278</span>&#160;&#160;&#160; <span class="pre">488738</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">2700551</span>&#160;&#160; <span class="pre">3104614</span> <span class="pre">New</span> <span class="pre">Hampshire</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">606921</span>&#160;&#160;&#160; <span class="pre">737681</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">1316470</span>&#160;&#160; <span class="pre">1377529</span> <span class="pre">New</span> <span class="pre">Jersey</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">6066782</span>&#160;&#160; <span class="pre">7168164</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">8791894</span>&#160;&#160; <span class="pre">9288994</span> <span class="pre">New</span> <span class="pre">Mexico</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">951023</span>&#160;&#160; <span class="pre">1016000</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">2059179</span>&#160;&#160; <span class="pre">2117522</span> <span class="pre">New</span> <span class="pre">York</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">16782304</span>&#160; <span class="pre">18236967</span>&#160; <span class="pre">...</span>&#160; <span class="pre">19378102</span>&#160; <span class="pre">20201249</span> <span class="pre">North</span> <span class="pre">Carolina</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">4556155</span>&#160;&#160; <span class="pre">5082059</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">9535483</span>&#160; <span class="pre">10439388</span> <span class="pre">North</span> <span class="pre">Dakota</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">632446</span>&#160;&#160;&#160; <span class="pre">617761</span>&#160; <span class="pre">...</span>&#160;&#160;&#160; <span class="pre">672591</span>&#160;&#160;&#160; <span class="pre">779094</span> <span class="pre">Ohio</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">9706397</span>&#160; <span class="pre">10652017</span>&#160; <span class="pre">...</span>&#160; <span class="pre">11536504</span>&#160; <span class="pre">11799448</span> <span class="pre">Oklahoma</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">2328284</span>&#160;&#160; <span class="pre">2559229</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">3751351</span>&#160;&#160; <span class="pre">3959353</span> <span class="pre">Oregon</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">1768687</span>&#160;&#160; <span class="pre">2091385</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">3831074</span>&#160;&#160; <span class="pre">4237256</span> <span class="pre">Pennsylvania</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">11319366</span>&#160; <span class="pre">11793909</span>&#160; <span class="pre">...</span>&#160; <span class="pre">12702379</span>&#160; <span class="pre">13002700</span> <span class="pre">Rhode</span> <span class="pre">Island</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">859488</span>&#160;&#160;&#160; <span class="pre">946725</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">1052567</span>&#160;&#160; <span class="pre">1097379</span> <span class="pre">South</span> <span class="pre">Carolina</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">2382594</span>&#160;&#160; <span class="pre">2590516</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">4625364</span>&#160;&#160; <span class="pre">5118425</span> <span class="pre">South</span> <span class="pre">Dakota</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">680514</span>&#160;&#160;&#160; <span class="pre">665507</span>&#160; <span class="pre">...</span>&#160;&#160;&#160; <span class="pre">814180</span>&#160;&#160;&#160; <span class="pre">886667</span> <span class="pre">Tennessee</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">3567089</span>&#160;&#160; <span class="pre">3923687</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">6346105</span>&#160;&#160; <span class="pre">6910840</span> <span class="pre">Texas</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">9579677</span>&#160; <span class="pre">11196730</span>&#160; <span class="pre">...</span>&#160; <span class="pre">25145561</span>&#160; <span class="pre">29145505</span> <span class="pre">Utah</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">890627</span>&#160;&#160; <span class="pre">1059273</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">2763885</span>&#160;&#160; <span class="pre">3271616</span> <span class="pre">Vermont</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">389881</span>&#160;&#160;&#160; <span class="pre">444330</span>&#160; <span class="pre">...</span>&#160;&#160;&#160; <span class="pre">625741</span>&#160;&#160;&#160; <span class="pre">643077</span> <span class="pre">Virginia</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">3966949</span>&#160;&#160; <span class="pre">4648494</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">8001024</span>&#160;&#160; <span class="pre">8631393</span> <span class="pre">Washington</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">2853214</span>&#160;&#160; <span class="pre">3409169</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">6724540</span>&#160;&#160; <span class="pre">7705281</span> <span class="pre">West</span> <span class="pre">Virginia</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">1860421</span>&#160;&#160; <span class="pre">1744237</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">1852994</span>&#160;&#160; <span class="pre">1793716</span> <span class="pre">Wisconsin</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">3951777</span>&#160;&#160; <span class="pre">4417731</span>&#160; <span class="pre">...</span>&#160;&#160; <span class="pre">5686986</span>&#160;&#160; <span class="pre">5893718</span> <span class="pre">Wyoming</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">330066</span>&#160;&#160;&#160; <span class="pre">332416</span>&#160; <span class="pre">...</span>&#160;&#160;&#160; <span class="pre">563626</span>&#160;&#160;&#160; <span class="pre">576851</span>&#160; <span class="pre">[51</span> <span class="pre">rows</span> <span class="pre">x</span> <span class="pre">7</span> <span class="pre">columns]</span></em><a class="headerlink" href="#ecsim.census_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>The (historical) US population data gathered with each decennial census.</p>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">ECSim</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Fill Staley.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/reference.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
